@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joyeux Anniversaire Sami</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #f3f0f9; /* Soft light purple */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 20px;
+            color: #5b507a;
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* --- WATERMARK BACKGROUND ICON --- */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 15%;
+            right: -5%; /* Positions it slightly off the right side */
+            width: 350px;
+            height: 350px;
+            background-image: url('https://upload.wikimedia.org/wikipedia/commons/4/41/Red-John-Smiley-Face.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            opacity: 0.12; /* Keeps it soft and transparent so text stays readable */
+            z-index: 0; /* Keeps it safely behind all elements */
+            pointer-events: none; /* Allows clicks to pass through it */
+        }
+
+        /* --- ENVELOPE STYLE --- */
+        .envelope-wrapper {
+            cursor: pointer;
+            transition: 0.5s;
+            text-align: center;
+            margin-top: 15vh;
+            position: relative;
+            z-index: 1;
+        }
+
+        .envelope {
+            font-size: 130px;
+            display: block;
+            line-height: 1;
+        }
+
+        .click-text {
+            font-weight: bold;
+            margin-top: 20px;
+            color: #7097d1; /* Pastel Blue */
+            animation: blink 1.5s infinite;
+        }
+
+        @keyframes blink { 0% { opacity: 1; } 50% { opacity: 0.3; } 100% { opacity: 1; } }
+
+        /* --- MAIN CONTENT (HIDDEN INITIALLY) --- */
+        #mainContent {
+            display: none; 
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* --- CONTENT STYLES --- */
+        h1 { 
+            font-size: 2.3rem; 
+            color: #5b507a;
+            text-shadow: 2px 2px #ffdee9; /* Soft Pink shadow */
+            text-align: center; 
+            margin-bottom: 5px;
+        }
+
+        .red-john-symbol {
+            font-size: 2.2rem;
+            color: #cc0000;
+            font-weight: bold;
+            margin: 5px 0 15px 0;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 0.9; }
+            50% { transform: scale(1.05); opacity: 1; }
+            100% { transform: scale(1); opacity: 0.9; }
+        }
+
+        .hobby-icons { 
+            font-size: 40px; 
+            margin: 15px 0; 
+            animation: bounce 2s infinite; 
+        }
+
+        @keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
+
+        /* Developer Card */
+        .code-section {
+            background: #2b2d42;
+            color: #edf2f4;
+            font-family: 'Courier New', Courier, monospace;
+            padding: 20px;
+            border-radius: 10px;
+            width: 100%;
+            border-left: 5px solid #a3bded; /* Soft blue accent */
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+            margin-bottom: 25px;
+            text-align: left;
+            font-size: 0.85rem;
+            overflow-x: auto;
+        }
+        .comment { color: #6c757d; }
+        .keyword { color: #ffb7b2; }
+        .string { color: #b5e2fa; }
+
+        /* Letter Styling */
+        .letter-content {
+            background: white; 
+            border-left: 5px solid #ffccd5; /* Pastel Pink */
+            border-right: 5px solid #a3bded; /* Pastel Blue */
+            padding: 25px;
+            width: 100%; 
+            border-radius: 12px; 
+            box-shadow: 0 6px 20px rgba(163, 189, 237, 0.15);
+            line-height: 1.7;
+            color: #4a4e69;
+            margin-bottom: 30px;
+            text-align: left;
+        }
+
+        .letter-content h3 {
+            color: #5b507a;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+            border-bottom: 2px dashed #f0e6ff;
+            padding-bottom: 5px;
+        }
+
+        .letter-text {
+            font-size: 1rem;
+            white-space: pre-line;
+        }
+
+        .signature {
+            margin-top: 25px;
+            font-weight: bold;
+            color: #7097d1;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="envelope-wrapper" id="envelope" onclick="openEnvelope()">
+        <div class="envelope">✉️</div>
+        <div class="click-text">Click to open your surprise, Sami...</div>
+    </div>
+
+    <div id="mainContent">
+        <h1>📸🎉 Happy Birthday, Sami! 🎉📸</h1>
+        <div class="red-john-symbol">🩸🙂</div>
+        
+        <div class="hobby-icons">💻 📸 🎸 🌲 📸</div>
+
+        <div class="code-section">
+            <span class="comment">// A special function for your birthday</span><br>
+            <span class="keyword">function</span> <span class="string">celebrateSami</span>() {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;let happiness = <span class="keyword">true</span>;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;let photographySkills = <span class="string">"infinite"</span>;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;console.log(<span class="string">"Keep exploring the world! 📸"</span>);<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> happiness;<br>
+            }
+        </div>
+
+        <div class="letter-content">
+            <h3>📷 My Letter to You</h3>
+            <p class="letter-text">Dear 3inin moka,
+
+Ama ba3d, you told me last time on Instagram that your birthday was on 14 this month and since I can’t give you a gift or give you a promise hit rah deja katsali betbouta ou holi ou m3za ou pizza italien rah andir faillite so I thought that this could be a special gift since nit you're helping me with coding. 
+
+Thank you so much for that lh chhal mn mra knit kharj m3a shabk ou bsbabi kan khask tkml lcode wlh I appreciate the sacrifice bjehd ou habi borsdau l ahssan chle7 ou slakh dlholi. I’m glad we became friends wlahila rak ghaya hhhhhhhh nari ma3ndich m3a t3bir, what I mean is rak hrbaan wlh you’re smart, hbiil, tadhekni lah yzwjek ou seriously you’ve got great potential.
+
+I wish you the best min a3ma9 9albi saghir ou I hope you travel the word and take picture of every part of it cause you’re the best photographer I’ve met wlah. Keep being sami lostora, do your hobbies and work hard don’t waste had l3ab9aria samia li 3ndk. Happy birthday 3inin moka I wish you to be happy wlh you deserve it.</p>
+            <div class="signature">From: lba9ara dahika 🩸🙂</div>
+        </div>
+    </div>
+
+    <script>
+        function openEnvelope() {
+            document.getElementById('envelope').style.display = 'none';
+            const mainContent = document.getElementById('mainContent');
+            mainContent.style.display = 'flex';
+        }
+    </script>
+</body>
+</html>
